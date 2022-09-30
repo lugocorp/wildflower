@@ -4,11 +4,13 @@ export default class HelloView extends View {
     private logo: ImageAsset;
 
     async handleStart(): Promise<void> {
+        // Load an image asset, then redraw the view
         this.logo = await Game.instance.assets.registerImage('assets/lugocorp.svg');
         Game.instance.frame();
     }
 
-    handleDraw(ctx: CanvasRenderingContext2D): void {
+    // Override this function for your drawing logic
+    handleFrame(ctx: CanvasRenderingContext2D, delta: number): void {
         ctx.font = '15px sans-serif';
         ctx.fillText('Hello, world!', 10, 100);
         if (this.logo) {
