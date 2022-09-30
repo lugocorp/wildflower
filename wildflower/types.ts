@@ -1,11 +1,11 @@
 
-export enum MouseEvent {
+export enum MouseType {
     MOVE,
     DOWN,
     UP
 }
 
-export enum KeyEvent {
+export enum KeyType {
     DOWN,
     UP
 }

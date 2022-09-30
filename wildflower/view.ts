@@ -1,10 +1,12 @@
-import { MouseEvent, KeyEvent } from './types';
+import { MouseType, KeyType } from './types';
 
-interface View {
-    handleStart: () => void;
-    handleMouse: (type: MouseEvent, x: number, y: number) => void;
-    handleKey: (type: KeyEvent, key: string) => void;
-    handleDraw: (ctx: CanvasRenderingContext2D) => void;
+export default class View {
+
+    handleStart(): void {}
+
+    handleMouse(type: MouseType, x: number, y: number): void {}
+
+    handleKey(type: KeyType, key: string): void {}
+
+    handleDraw(ctx: CanvasRenderingContext2D): void {}
 }
-
-export default View;

@@ -1,50 +1,57 @@
+import { MouseType, KeyType } from './types';
 import View from './view';
 
 export default class Game {
     private static _game: Game;
     private _ctx: CanvasRenderingContext2D;
-    private _canvas: HTMLCanvasElement;
+    private canvas: HTMLCanvasElement;
+    private future: NodeJS.Timeout;
     private view: View;
-    scale = 1;
-
-    static initialize(canvas: HTMLCanvasElement): Game {
-        if (Game._game) {
-            throw new Error('A game has already been initialized');
-        }
-        Game._game = new Game(canvas);
-        return Game._game;
-    }
+    private scale = 1;
 
     static get instance(): Game {
         return Game._game;
     }
 
-    private constructor(canvas: HTMLCanvasElement) {
+    static initialize(canvas: HTMLCanvasElement, view: View): Game {
+        if (Game._game) {
+            throw new Error('A game has already been initialized');
+        }
+        Game._game = new Game(canvas, view);
+        return Game._game;
+    }
+
+    private constructor(canvas: HTMLCanvasElement, view: View) {
         const that = this;
-        this._canvas = canvas;
+        this.canvas = canvas;
         this._ctx = canvas.getContext('2d');
         canvas.height = window.innerHeight;
         canvas.width = window.innerWidth;
-        const registerMouseEvent = (type: MouseEvent, event: string): void => canvas.addEventListener(event, (e) => {
+        const registerMouseType = (type: MouseType, event: string): void => canvas.addEventListener(event, (e: MouseEvent) => {
             const coords: [number, number] = that.transformCoords(e.clientX, e.clientY);
             that.view.handleMouse(type, coords[0], coords[1]);
         });
-        const registerKeyEvent = (type: KeyEvent, event: string): void => canvas.addEventListener(event, (e) => {
+        const registerKeyType = (type: KeyType, event: string): void => canvas.addEventListener(event, (e: KeyboardEvent) => {
             that.view.handleKey(type, e.key);
         });
-        registerMouseEvent(MouseEvent.MOVE, 'mousemove');
-        registerMouseEvent(MouseEvent.DOWN, 'mousedown');
-        registerMouseEvent(MouseEvent.UP, 'mouseup');
-        registerKeyEvent(KeyEvent.DOWN, 'keydown');
-        registerKeyEvent(KeyEvent.UP, 'keyup');
-    }
-
-    get canvas(): HTMLCanvasElement {
-        return this._canvas;
+        registerMouseType(MouseType.MOVE, 'mousemove');
+        registerMouseType(MouseType.DOWN, 'mousedown');
+        registerMouseType(MouseType.UP, 'mouseup');
+        registerKeyType(KeyType.DOWN, 'keydown');
+        registerKeyType(KeyType.UP, 'keyup');
+        this.setView(view);
     }
 
     get ctx(): CanvasRenderingContext2D {
         return this._ctx;
+    }
+
+    private transformCoords(x: number, y: number): [number, number] {
+        const rect = this.canvas.getBoundingClientRect();
+        return [
+            (x - rect.left) / this.scale,
+            (y - rect.top) / this.scale
+        ];
     }
 
     setView(view: View): void {
@@ -52,12 +59,29 @@ export default class Game {
         view.handleStart();
     }
 
-    transformCoords(x: number, y: number): [number, number] {
-        const rect = canvas.getBoundingClientRect();
-        return [
-            (x - rect.left) / this.scale,
-            (y - rect.top) / this.scale
-        ];
+    frame(): Game {
+        this.view.handleDraw(this._ctx);
+        return this;
+    }
+
+    loop(interval = 100): Game {
+        if (this.future) {
+            throw new Error('Game loop is already ongoing');
+        }
+        const that = this;
+        this.future = setTimeout(function () {
+            that.future = undefined;
+            that.loop();
+        }, interval);
+        return this.frame();
+    }
+
+    stop(): Game {
+        if (!this.future) {
+            throw new Error('No ongoing game loop to stop');
+        }
+        clearTimeout(this.future);
+        return this;
     }
 
     resize(width = window.innerWidth, height = window.innerHeight): Game {
