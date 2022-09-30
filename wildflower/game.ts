@@ -1,8 +1,10 @@
 import { MouseType, KeyType } from './types';
+import AssetsManager from './assets';
 import View from './view';
 
 export default class Game {
     private static _game: Game;
+    readonly assets = new AssetsManager();
     private _ctx: CanvasRenderingContext2D;
     private canvas: HTMLCanvasElement;
     private future: NodeJS.Timeout;
@@ -17,8 +19,10 @@ export default class Game {
         if (Game._game) {
             throw new Error('A game has already been initialized');
         }
-        Game._game = new Game(canvas, view);
-        return Game._game;
+        const game: Game = new Game(canvas, view);
+        Game._game = game;
+        game.setView(view);
+        return game;
     }
 
     private constructor(canvas: HTMLCanvasElement, view: View) {
@@ -39,7 +43,6 @@ export default class Game {
         registerMouseType(MouseType.UP, 'mouseup');
         registerKeyType(KeyType.DOWN, 'keydown');
         registerKeyType(KeyType.UP, 'keyup');
-        this.setView(view);
     }
 
     get ctx(): CanvasRenderingContext2D {
@@ -60,7 +63,10 @@ export default class Game {
     }
 
     frame(): Game {
+        const inverse = 1 / this.scale;
+        this.ctx.scale(this.scale, this.scale);
         this.view.handleDraw(this._ctx);
+        this.ctx.scale(inverse, inverse);
         return this;
     }
 

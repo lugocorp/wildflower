@@ -2,7 +2,7 @@ import { MouseType, KeyType } from './types';
 
 export default class View {
 
-    handleStart(): void {}
+    async handleStart(): Promise<void> {}
 
     handleMouse(type: MouseType, x: number, y: number): void {}
 
