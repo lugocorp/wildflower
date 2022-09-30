@@ -26,6 +26,7 @@ node_modules/
 /platforms/
 
 # Custom
+/package-lock.json
 /www/index.js.map
 /www/index.js
 /www/src
