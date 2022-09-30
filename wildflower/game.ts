@@ -20,10 +20,23 @@ export default class Game {
     }
 
     private constructor(canvas: HTMLCanvasElement) {
+        const that = this;
         this._canvas = canvas;
         this._ctx = canvas.getContext('2d');
         canvas.height = window.innerHeight;
         canvas.width = window.innerWidth;
+        const registerMouseEvent = (type: MouseEvent, event: string): void => canvas.addEventListener(event, (e) => {
+            const coords: [number, number] = that.transformCoords(e.clientX, e.clientY);
+            that.view.handleMouse(type, coords[0], coords[1]);
+        });
+        const registerKeyEvent = (type: KeyEvent, event: string): void => canvas.addEventListener(event, (e) => {
+            that.view.handleKey(type, e.key);
+        });
+        registerMouseEvent(MouseEvent.MOVE, 'mousemove');
+        registerMouseEvent(MouseEvent.DOWN, 'mousedown');
+        registerMouseEvent(MouseEvent.UP, 'mouseup');
+        registerKeyEvent(KeyEvent.DOWN, 'keydown');
+        registerKeyEvent(KeyEvent.UP, 'keyup');
     }
 
     get canvas(): HTMLCanvasElement {
@@ -37,6 +50,14 @@ export default class Game {
     setView(view: View): void {
         this.view = view;
         view.handleStart();
+    }
+
+    transformCoords(x: number, y: number): [number, number] {
+        const rect = canvas.getBoundingClientRect();
+        return [
+            (x - rect.left) / this.scale,
+            (y - rect.top) / this.scale
+        ];
     }
 
     resize(width = window.innerWidth, height = window.innerHeight): Game {
