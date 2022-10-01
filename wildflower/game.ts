@@ -26,7 +26,7 @@ export default class Game {
         if (Game._game) {
             throw new Error('A game has already been initialized');
         }
-        const game: Game = new Game(canvas, view);
+        const game: Game = new Game(canvas);
         Game._game = game;
         game.setView(view);
         return game;
@@ -35,7 +35,7 @@ export default class Game {
     /**
      * Constructor for this class
      */
-    private constructor(canvas: HTMLCanvasElement, view: View) {
+    private constructor(canvas: HTMLCanvasElement) {
         const that = this;
         this.canvas = canvas;
         this._ctx = canvas.getContext('2d');

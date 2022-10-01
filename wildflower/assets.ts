@@ -17,7 +17,7 @@ export default class AssetsManager {
         const element: HTMLImageElement = new Image();
         this.images[src] = element;
         const that = this;
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             element.onload = () => {
                 that.images[src] = element;
                 const asset: ImageAsset = { element, left, top, width: (isNaN(width) ? element.width : width), height: (isNaN(height) ? element.height : height) };
