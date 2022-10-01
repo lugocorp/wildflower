@@ -1,4 +1,4 @@
-import { Game, View, ImageAsset } from '../wildflower';
+import { Game, View, ImageAsset } from 'wildflower';
 
 export default class HelloView extends View {
     private logo: ImageAsset;

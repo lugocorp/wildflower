@@ -13,7 +13,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    alias: {
+        'wildflower': path.join(__dirname, 'wildflower')
+    }
   },
   output: {
     path: path.join(__dirname, 'www'),

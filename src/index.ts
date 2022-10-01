@@ -1,4 +1,4 @@
-import { Game } from '../wildflower';
+import { Game } from 'wildflower';
 import HelloView from './hello';
 
 document.addEventListener('deviceready', async () => {
