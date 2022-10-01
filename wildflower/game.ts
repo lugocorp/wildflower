@@ -90,6 +90,7 @@ export default class Game {
             this.lastFrame = now;
         }
         const inverse = 1 / this.scale;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.scale(this.scale, this.scale);
         this.view.handleFrame(this._ctx, (now - this.lastFrame) / 1000);
         this.ctx.scale(inverse, inverse);
