@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "lint": "eslint src",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "upgrade": "node upgrade.js"
   },
   "keywords": [
     "ecosystem:cordova"
