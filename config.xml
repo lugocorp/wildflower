@@ -5,8 +5,8 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <hook type="before_build" src="build.sh" />
-    <hook type="before_run" src="build.sh" />
+    <hook type="before_build" src="scripts/build.sh" />
+    <hook type="before_run" src="scripts/build.sh" />
     <platform name="android">
       <icon density="ldpi" foreground="icons/icon.xml" background="icons/background.xml" src="icons/icon.xml" />
       <icon density="mdpi" foreground="icons/icon.xml" background="icons/background.xml" src="icons/icon.xml" />
