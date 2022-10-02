@@ -3,6 +3,7 @@ node_modules/
 /plugins/
 /platforms/
 /package-lock.json
+/www/cordova.js
 /www/index.js.map
 /www/index.js
 /www/src
