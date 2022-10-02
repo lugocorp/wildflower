@@ -29,7 +29,8 @@ export default class AssetsManager {
     }
 
     /**
-     * This function loads an audio asset and returns a handle for it
+     * This function loads an audio asset and returns a handle for it.
+     * The handle is an HTML element that can be accessed using standard HTML5 methods.
      */
     async registerAudio(key: string, src: string): Promise<HTMLAudioElement> {
         const element: HTMLAudioElement = new Audio();
@@ -41,21 +42,21 @@ export default class AssetsManager {
     }
 
     /**
-     * This function retrieves a previously loaded image asset
+     * This function retrieves a previously loaded image asset.
      */
     getImage(key: string): ImageAsset {
         return this.imageAssets[key];
     }
 
     /**
-     * This function retrieves a previously loaded audio asset
+     * This function retrieves a previously loaded audio asset.
      */
     getAudio(key: string): HTMLAudioElement {
         return this.audioAssets[key];
     }
 
     /**
-     * This functions unloads a loaded resource
+     * This functions unloads a loaded resource.
      */
     unload(key: string) {
         delete this.imageAssets[key];
@@ -63,14 +64,15 @@ export default class AssetsManager {
     }
 
     /**
-     * This function draws an image asset that was loaded by this class
+     * This function draws an image asset that was loaded by this class.
      */
     draw(ctx: CanvasRenderingContext2D, image: ImageAsset, x: number, y: number, width?: number, height?: number): void {
         ctx.drawImage(image.element, image.left, image.top, image.width, image.height, x, y, width || image.width, height || image.height);
     }
 
     /**
-     * This function plays an audio asset, restarting it if necessary
+     * This function plays an audio asset.
+     * The asset restarts first if it has already played or is currently playing.
      */
     play(audio: HTMLAudioElement): void {
         audio.pause();

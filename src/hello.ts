@@ -5,7 +5,7 @@ export default class HelloView extends View {
 
     async handleStart(): Promise<void> {
         // Load an image asset, then redraw the view
-        this.logo = await Game.instance.assets.registerImage('logo', 'assets/logo.svg');
+        this.logo = await Game.instance.assets.registerImage('logo', 'assets/icon.svg');
         Game.instance.frame();
     }
 

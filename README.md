@@ -1,6 +1,8 @@
-<img src="./www/assets/logo.svg" width="150px" height="150px"/>
+<img src="./media/logo.svg" height="150px"/>
 
-# Wildflower
+</br>
+</br>
+
 **version** 1.0
 
 Wildflower is a lightweight, open source mobile game library and framework built on top of Apache Cordova.
@@ -43,56 +45,6 @@ npm run upgrade
 
 This command will upgrade your local copy of the Wildflower library.
 Configuration such as `package.json` or `webpack.config.js` will not be affected by the upgrade script.
-
-## Documentation
-
-### enum MouseType
-An enum with the options of `MOVE`, `UP` and `DOWN`.
-
-### enum KeyType
-An enum with the options of `UP` and `DOWN`.
-
-### interface ImageAsset
-This type represents a loaded image asset.
-It has the following fields:
-- **element**: `HTMLImageElement`
-
-    The underlying image that this asset references
-
-- **left**: `number`
-
-    Refers to where this asset is focused on the image
-
-- **top**: `number`
-
-    Refers to where this asset is focused on the image
-
-- **width**: `number`
-
-    Refers to the width of this asset
-
-- **height**: `number`
-
-    Refers to the height of this asset
-
-### class View
-This class helps structure your app.
-You override it to define each of the unique screens for your game.
-It has several methods that Wildflower will handle calling for you.
-
-#### async handleStart (): `Promise<void>`
-This function runs whenever your view becomes active.
-You can place setup code here, such as loading assets.
-
-#### handleMouse (type: `MouseType`, x: `number`, y: `number`): `void`
-This function gets fired whenever the player does something with the mouse (specifically pressing down or up or moving it).
-
-#### handleKey (type: `KeyType`, key: `string`): `void`
-This function fires whenever the player presses a key down or up.
-
-#### handleFrame (ctx: `CanvasRenderingContext2D`, delta: `number`): `void`
-This function should implement your view's frame update and draw logic.
-It can be triggered by calling your game's `frame()` function.
 
 ## Contact
 This software was developed by [LugoCorp](http://lugocorp.net).

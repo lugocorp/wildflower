@@ -13,14 +13,15 @@ export default class Game {
     private scale = 1;
 
     /**
-     * This function grabs the singleton instance of the game class
+     * This function grabs the singleton instance of the `Game` class.
      */
     static get instance(): Game {
         return Game._game;
     }
 
     /**
-     * This function acts as the factory for the game class
+     * This function acts as the factory for the game class.
+     * You must use this instead of the constructor to create a new instance of `Game`.
      */
     static initialize(canvas: HTMLCanvasElement, view: View): Game {
         if (Game._game) {
@@ -32,9 +33,6 @@ export default class Game {
         return game;
     }
 
-    /**
-     * Constructor for this class
-     */
     private constructor(canvas: HTMLCanvasElement) {
         const that = this;
         this.canvas = canvas;
@@ -56,7 +54,8 @@ export default class Game {
     }
 
     /**
-     * This function provides read-only access to the game's 2D context object
+     * This function provides read-only access to the game's 2D context object.
+     * This object is used for drawing on the HTML5 canvas view.
      */
     get ctx(): CanvasRenderingContext2D {
         return this._ctx;
@@ -64,6 +63,7 @@ export default class Game {
 
     /**
      * This function converts user input coordinates into developer-defined internal coordinates.
+     * It is used internally so developers won't have to handle scaling user clicks to the canvas.
      */
     private transformCoords(x: number, y: number): [number, number] {
         const rect = this.canvas.getBoundingClientRect();
@@ -74,7 +74,7 @@ export default class Game {
     }
 
     /**
-     * This function sets the game's current view and runs its start logic
+     * This function sets the game's current view and runs its start logic (as defined by its `handleStart()` method).
      */
     setView(view: View): void {
         this.view = view;
@@ -82,7 +82,7 @@ export default class Game {
     }
 
     /**
-     * This function runs the frame logic for your current view
+     * This function runs the frame logic for your current view (as defined by its `handleFrame()` method).
      */
     frame(): Game {
         const now: number = new Date().getTime();
@@ -115,7 +115,7 @@ export default class Game {
     }
 
     /**
-     * This function stops any actively running game loops, or throws an error if none were active
+     * This function stops any actively running game loops, or throws an error if none were active.
      */
     stop(): Game {
         if (!this.future) {
@@ -126,7 +126,7 @@ export default class Game {
     }
 
     /**
-     * This function resizes the canvas to fill the screen while also maintaining a developer-defined coordinate system
+     * This function resizes the canvas to fill the screen while also maintaining a developer-defined coordinate system.
      */
     resize(width = window.innerWidth, height = window.innerHeight): Game {
         const screenHeight: number = window.innerHeight;
