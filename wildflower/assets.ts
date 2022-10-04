@@ -4,6 +4,7 @@ export default class AssetsManager {
     private images: Record<string, HTMLImageElement> = {};
     private imageAssets: Record<string, ImageAsset> = {};
     private audioAssets: Record<string, HTMLAudioElement> = {};
+    pixelMode = false;
 
     /**
      * This function loads an image asset and returns a handle for it.
@@ -67,6 +68,9 @@ export default class AssetsManager {
      * This function draws an image asset that was loaded by this class.
      */
     draw(ctx: CanvasRenderingContext2D, image: ImageAsset, x: number, y: number, width?: number, height?: number): void {
+        if (this.pixelMode) {
+            ctx.imageSmoothingEnabled = false;
+        }
         ctx.drawImage(image.element, image.left, image.top, image.width, image.height, x, y, width || image.width, height || image.height);
     }
 

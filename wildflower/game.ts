@@ -92,7 +92,13 @@ export default class Game {
         const inverse = 1 / this.scale;
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.scale(this.scale, this.scale);
-        this.view.handleFrame(this._ctx, (now - this.lastFrame) / 1000);
+        try {
+            this.view.handleFrame(this._ctx, (now - this.lastFrame) / 1000);
+        } catch (err) {
+            this.ctx.scale(inverse, inverse);
+            this.lastFrame = now;
+            throw err;
+        }
         this.ctx.scale(inverse, inverse);
         this.lastFrame = now;
         return this;
