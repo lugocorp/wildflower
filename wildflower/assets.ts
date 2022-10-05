@@ -13,7 +13,9 @@ export default class AssetsManager {
     async registerImage(key: string, src: string, left = 0, top = 0, width?: number, height?: number): Promise<ImageAsset> {
         if (this.images[src]) {
             const element: HTMLImageElement = this.images[src];
-            return { element, left, top, width: isNaN(width) ? element.width : width, height: isNaN(height) ? element.height : height };
+            const asset: ImageAsset = { element, left, top, width: isNaN(width) ? element.width : width, height: isNaN(height) ? element.height : height };
+            this.imageAssets[key] = asset;
+            return asset;
         }
         const element: HTMLImageElement = new Image();
         this.images[src] = element;
@@ -46,14 +48,22 @@ export default class AssetsManager {
      * This function retrieves a previously loaded image asset.
      */
     getImage(key: string): ImageAsset {
-        return this.imageAssets[key];
+        const asset: ImageAsset = this.imageAssets[key];
+        if (!asset) {
+            throw new Error(`Undefined image asset '${key}'`);
+        }
+        return asset;
     }
 
     /**
      * This function retrieves a previously loaded audio asset.
      */
     getAudio(key: string): HTMLAudioElement {
-        return this.audioAssets[key];
+        const asset: HTMLAudioElement = this.audioAssets[key];
+        if (!asset) {
+            throw new Error(`Undefined audio asset '${key}'`);
+        }
+        return asset;
     }
 
     /**

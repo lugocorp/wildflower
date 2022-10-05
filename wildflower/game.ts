@@ -95,8 +95,7 @@ export default class Game {
         try {
             this.view.handleFrame(this._ctx, (now - this.lastFrame) / 1000);
         } catch (err) {
-            this.ctx.scale(inverse, inverse);
-            this.lastFrame = now;
+            this.stop();
             throw err;
         }
         this.ctx.scale(inverse, inverse);
