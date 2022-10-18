@@ -18,7 +18,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">AssetsManager</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L3">assets.ts:3</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L3">assets.ts:3</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -58,17 +58,17 @@
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>audio<wbr/>Assets</span><a href="#audioAssets" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">audio<wbr/>Assets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">HTMLAudioElement</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L6">assets.ts:6</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L6">assets.ts:6</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="imageAssets" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>image<wbr/>Assets</span><a href="#imageAssets" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">image<wbr/>Assets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ImageAsset.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageAsset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L5">assets.ts:5</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L5">assets.ts:5</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="images" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>images</span><a href="#images" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">images<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">HTMLImageElement</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L4">assets.ts:4</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L4">assets.ts:4</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="draw" class="tsd-anchor"></a>
@@ -82,50 +82,70 @@
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5></li>
+<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+<div class="tsd-comment tsd-typography"><p>The HTML5 2D context to make draw calls on</p>
+</div></li>
 <li>
-<h5>image: <a href="../interfaces/ImageAsset.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageAsset</a></h5></li>
+<h5>image: <a href="../interfaces/ImageAsset.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageAsset</a></h5>
+<div class="tsd-comment tsd-typography"><p>The image asset to be drawn</p>
+</div></li>
 <li>
-<h5>x: <span class="tsd-signature-type">number</span></h5></li>
+<h5>x: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The horizontal coordinate to draw the image at</p>
+</div></li>
 <li>
-<h5>y: <span class="tsd-signature-type">number</span></h5></li>
+<h5>y: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The vertical coordinate to draw the image at</p>
+</div></li>
 <li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> width: <span class="tsd-signature-type">number</span></h5></li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> width: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The width to scale the image to when it is drawn</p>
+</div></li>
 <li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> height: <span class="tsd-signature-type">number</span></h5></li></ul></div>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> height: <span class="tsd-signature-type">number</span></h5>
+<div class="tsd-comment tsd-typography"><p>The height to scale the image to when it is drawn</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L69">assets.ts:69</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L104">assets.ts:104</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getAudio" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Audio</span><a href="#getAudio" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 <li class="tsd-signature tsd-anchor-link" id="getAudio.getAudio-1">get<wbr/>Audio<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLAudioElement</span><a href="#getAudio.getAudio-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>This function retrieves a previously loaded audio asset.</p>
+
+<h3>Returns</h3><p>The asset you want to retrieve</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>key: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>key: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>The string you passed while loading your desired asset</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLAudioElement</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L54">assets.ts:54</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L78">assets.ts:78</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getImage" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Image</span><a href="#getImage" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 <li class="tsd-signature tsd-anchor-link" id="getImage.getImage-1">get<wbr/>Image<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ImageAsset.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageAsset</a><a href="#getImage.getImage-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>This function retrieves a previously loaded image asset.</p>
+
+<h3>Returns</h3><p>The asset you want to retrieve</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>key: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>key: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>The string you passed while loading your desired asset</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="../interfaces/ImageAsset.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageAsset</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L47">assets.ts:47</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L65">assets.ts:65</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="play" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>play</span><a href="#play" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -138,10 +158,12 @@ The asset restarts first if it has already played or is currently playing.</p>
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>audio: <span class="tsd-signature-type">HTMLAudioElement</span></h5></li></ul></div>
+<h5>audio: <span class="tsd-signature-type">HTMLAudioElement</span></h5>
+<div class="tsd-comment tsd-typography"><p>An audio asset</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L77">assets.ts:77</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L116">assets.ts:116</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="registerAudio" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>register<wbr/>Audio</span><a href="#registerAudio" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -149,17 +171,23 @@ The asset restarts first if it has already played or is currently playing.</p>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>This function loads an audio asset and returns a handle for it.
 The handle is an HTML element that can be accessed using standard HTML5 methods.</p>
+
+<h3>Returns</h3><p>A promise that resolves when the asset has successfully loaded</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>key: <span class="tsd-signature-type">string</span></h5></li>
+<h5>key: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>A string you&#39;ll use to access this asset in the future</p>
+</div></li>
 <li>
-<h5>src: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>src: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>A path to the asset, relative to your <code>www</code> folder</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HTMLAudioElement</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L35">assets.ts:35</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L50">assets.ts:50</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="registerImage" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>register<wbr/>Image</span><a href="#registerImage" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -167,25 +195,35 @@ The handle is an HTML element that can be accessed using standard HTML5 methods.
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>This function loads an image asset and returns a handle for it.
 The asset can be a subset of a larger image, such as a spritesheet.</p>
+
+<h3>Returns</h3><p>A promise that resolves when the asset has successfully loaded</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>key: <span class="tsd-signature-type">string</span></h5></li>
+<h5>key: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>A string you&#39;ll use to access this asset in the future</p>
+</div></li>
 <li>
-<h5>src: <span class="tsd-signature-type">string</span></h5></li>
+<h5>src: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>A path to the asset, relative to your <code>www</code> folder</p>
+</div></li>
 <li>
-<h5>left: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5></li>
+<h5>left: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+<div class="tsd-comment tsd-typography"><p>The horizontal coordinate of your asset, if it&#39;s in a spritesheet</p>
+</div></li>
 <li>
-<h5>top: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5></li>
+<h5>top: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+<div class="tsd-comment tsd-typography"><p>The vertical coordinate of your asset, if it&#39;s in a spritesheet</p>
+</div></li>
 <li>
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> width: <span class="tsd-signature-type">number</span></h5></li>
 <li>
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> height: <span class="tsd-signature-type">number</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ImageAsset.html" class="tsd-signature-type" data-tsd-kind="Interface">ImageAsset</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L12">assets.ts:12</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L21">assets.ts:21</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="unload" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>unload</span><a href="#unload" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -197,10 +235,12 @@ The asset can be a subset of a larger image, such as a spritesheet.</p>
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>key: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h5>key: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>The string you passed while loading your desired asset</p>
+</div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/c12ff2f/wildflower/assets.ts#L61">assets.ts:61</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/lugocorp/wildflower/blob/e10da29/wildflower/assets.ts#L90">assets.ts:90</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">

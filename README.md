@@ -1,4 +1,4 @@
-<img src="./media/logo.svg" height="150px"/>
+<img src="https://raw.githubusercontent.com/lugocorp/wildflower/main/media/logo.svg" height="150px"/>
 
 </br>
 </br>

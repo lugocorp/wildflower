@@ -3,8 +3,11 @@ import AssetsManager from './assets';
 import View from './view';
 
 export default class Game {
-    private static _game: Game;
+    /**
+     * The asset manager to be used for this instance of Game
+     */
     readonly assets = new AssetsManager();
+    private static _game: Game;
     private _ctx: CanvasRenderingContext2D;
     private canvas: HTMLCanvasElement;
     private future: NodeJS.Timeout;
@@ -16,6 +19,7 @@ export default class Game {
 
     /**
      * This function grabs the singleton instance of the `Game` class.
+     * @returns {Game} the single instance of `Game`
      */
     static get instance(): Game {
         return Game._game;
@@ -24,6 +28,9 @@ export default class Game {
     /**
      * This function acts as the factory for the game class.
      * You must use this instead of the constructor to create a new instance of `Game`.
+     * @param {HTMLCanvasElement} canvas The HTML5 canvas to utilize for this game
+     * @param {View} view The desired initial view for this game
+     * @returns {Game} the `Game` singleton
      */
     static initialize(canvas: HTMLCanvasElement, view: View): Game {
         if (Game._game) {
@@ -59,20 +66,24 @@ export default class Game {
     /**
      * This function provides read-only access to the game's 2D context object.
      * This object is used for drawing on the HTML5 canvas view.
+     * @returns {CanvasRenderingContext2D} The HTML5 2D context to make draw calls on
      */
     get ctx(): CanvasRenderingContext2D {
         return this._ctx;
     }
 
     /**
-     * Grabs the AssetsManager's value of pixel mode
+     * Grabs the `AssetsManager`'s value of pixel mode
+     * @returns {boolean} Whether or not `pixel mode` is activated
      */
     get pixelMode(): boolean {
         return this.assets._pixelMode;
     }
 
     /**
-     * Sets the value for AssetsManager's pixel mode
+     * Sets the value for `AssetsManager`'s pixel mode
+     * @param {boolean} pixelMode The value used to set the `AssetManager`'s pixel mode
+     * @returns {Game} the `Game` singleton
      */
     setPixelMode(pixelMode: boolean): Game {
         this.assets._pixelMode = pixelMode;
@@ -93,6 +104,7 @@ export default class Game {
 
     /**
      * This function sets the game's current view and runs its start logic (as defined by its `handleStart()` method).
+     * @param {View} view The desired `View` to display
      */
     setView(view: View): void {
         this.view = view;
@@ -101,6 +113,7 @@ export default class Game {
 
     /**
      * This function runs the frame logic for your current view (as defined by its `handleFrame()` method).
+     * @returns {Game} the `Game` singleton
      */
     frame(): Game {
         const now: number = new Date().getTime();
@@ -124,6 +137,8 @@ export default class Game {
     /**
      * This function begins a game loop with a defined interval in between frames (defined in milliseconds).
      * It throws an error if a game loop is already active.
+     * @param {number} interval The milliseconds that should elapse between regular calls to `frame`
+     * @returns {Game} The `Game` singleton
      */
     loop(interval = 100): Game {
         if (this.future) {
@@ -139,6 +154,7 @@ export default class Game {
 
     /**
      * This function stops any actively running game loops, or throws an error if none were active.
+     * @returns {Game} The `Game` singleton
      */
     stop(): Game {
         if (!this.future) {
@@ -150,6 +166,9 @@ export default class Game {
 
     /**
      * This function resizes the canvas to fill the screen while also maintaining a developer-defined coordinate system.
+     * @param {number} width The desired internal width coordinate
+     * @param {number} height The desired internal height coordinate
+     * @returns {Game} The `Game` singleton
      */
     resize(width = this.internalWidth, height = this.internalHeight): Game {
         width = width || window.innerWidth;

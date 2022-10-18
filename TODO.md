@@ -3,5 +3,5 @@
 - [x] Fix the sizing on the mobile icon
 - [x] Throw an error when assets fail to load
 - [x] Handle window resizing with an event listener
-- [ ] Buff up doc comments (use `@param`, `@return` and `@throws`)
-- [ ] Test the library update script
+- [x] Test the library update script
+- [x] Buff up doc comments (use `@param`, `@return` and `@throws`) and run `typedoc`
