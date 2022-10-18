@@ -5,6 +5,6 @@
     android:height="354.3307dp">
     <path
         android:pathData="M0 0H100V100H0V0Z"
-        android:fillColor="#000000"
+        android:fillColor="#5b93f7"
         android:strokeLineCap="round" />
 </vector>

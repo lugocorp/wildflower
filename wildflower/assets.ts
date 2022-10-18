@@ -4,7 +4,7 @@ export default class AssetsManager {
     private images: Record<string, HTMLImageElement> = {};
     private imageAssets: Record<string, ImageAsset> = {};
     private audioAssets: Record<string, HTMLAudioElement> = {};
-    pixelMode = false;
+    _pixelMode = false;
 
     /**
      * This function loads an image asset and returns a handle for it.
@@ -21,6 +21,7 @@ export default class AssetsManager {
         this.images[src] = element;
         const that = this;
         return new Promise((resolve) => {
+            element.onerror = (err) => { throw `Failure while loading image asset '${src}'` };
             element.onload = () => {
                 that.images[src] = element;
                 const asset: ImageAsset = { element, left, top, width: (isNaN(width) ? element.width : width), height: (isNaN(height) ? element.height : height) };
@@ -39,6 +40,7 @@ export default class AssetsManager {
         const element: HTMLAudioElement = new Audio();
         this.audioAssets[key] = element;
         return new Promise((resolve) => {
+            element.onerror = (err) => { throw `Failure while loading audio asset '${src}'` };
             element.onload = () => resolve(element);
             element.src = src;
         });
@@ -78,7 +80,7 @@ export default class AssetsManager {
      * This function draws an image asset that was loaded by this class.
      */
     draw(ctx: CanvasRenderingContext2D, image: ImageAsset, x: number, y: number, width?: number, height?: number): void {
-        if (this.pixelMode) {
+        if (this._pixelMode) {
             ctx.imageSmoothingEnabled = false;
         }
         ctx.drawImage(image.element, image.left, image.top, image.width, image.height, x, y, width || image.width, height || image.height);

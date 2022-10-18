@@ -8,6 +8,8 @@ export default class Game {
     private _ctx: CanvasRenderingContext2D;
     private canvas: HTMLCanvasElement;
     private future: NodeJS.Timeout;
+    private internalHeight: number;
+    private internalWidth: number;
     private lastFrame: number;
     private view: View;
     private scale = 1;
@@ -39,6 +41,7 @@ export default class Game {
         this._ctx = canvas.getContext('2d');
         canvas.height = window.innerHeight;
         canvas.width = window.innerWidth;
+        window.addEventListener('resize', () => that.resize().frame());
         const registerMouseType = (type: MouseType, event: string): void => canvas.addEventListener(event, (e: MouseEvent) => {
             const coords: [number, number] = that.transformCoords(e.clientX, e.clientY);
             that.view.handleMouse(type, coords[0], coords[1]);
@@ -59,6 +62,21 @@ export default class Game {
      */
     get ctx(): CanvasRenderingContext2D {
         return this._ctx;
+    }
+
+    /**
+     * Grabs the AssetsManager's value of pixel mode
+     */
+    get pixelMode(): boolean {
+        return this.assets._pixelMode;
+    }
+
+    /**
+     * Sets the value for AssetsManager's pixel mode
+     */
+    setPixelMode(pixelMode: boolean): Game {
+        this.assets._pixelMode = pixelMode;
+        return this;
     }
 
     /**
@@ -133,7 +151,11 @@ export default class Game {
     /**
      * This function resizes the canvas to fill the screen while also maintaining a developer-defined coordinate system.
      */
-    resize(width = window.innerWidth, height = window.innerHeight): Game {
+    resize(width = this.internalWidth, height = this.internalHeight): Game {
+        width = width || window.innerWidth;
+        height = height || window.innerHeight;
+        this.internalWidth = width;
+        this.internalHeight = height;
         const screenHeight: number = window.innerHeight;
         const screenWidth: number = window.innerWidth;
         this.scale = screenHeight / height;
